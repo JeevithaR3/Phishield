@@ -1,101 +1,78 @@
-import { ExternalLink, Github, Shield, Brain, Droplets, Lock } from "lucide-react";
+import { ExternalLink, Shield, Brain, Droplets, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const projects = [
   {
     title: "AI Phishing Detector",
-    subtitle: "Chrome Extension + Web Dashboard",
-    description: "Multi-purpose AI-powered phishing detection system with real-time threat analysis, browser extension, and comprehensive admin dashboard.",
+    description: "Chrome extension with real-time phishing detection using machine learning.",
     icon: Shield,
-    tags: ["Python", "TensorFlow", "React", "Chrome API"],
+    tags: ["Python", "TensorFlow", "React"],
     color: "from-primary to-orange-400",
   },
   {
-    title: "AI Defender for Children",
-    subtitle: "Content Safety Platform",
-    description: "Chrome extension and dashboard detecting toxic content using BERT/RoBERTa models to protect children from harmful online content.",
+    title: "AI Content Guardian",
+    description: "Protecting children online with BERT-based toxic content detection.",
     icon: Brain,
-    tags: ["NLP", "BERT", "RoBERTa", "React", "Node.js"],
+    tags: ["NLP", "BERT", "Node.js"],
     color: "from-secondary to-purple-400",
   },
   {
-    title: "Virtual Water Distribution",
-    subtitle: "AI Credit System",
-    description: "Intelligent water distribution system with dynamic pricing, interactive dashboards, AI chatbot assistance, and integrated payment solutions.",
+    title: "Smart Water System",
+    description: "AI-powered water distribution with dynamic pricing and analytics.",
     icon: Droplets,
-    tags: ["AI/ML", "React", "MongoDB", "Stripe"],
+    tags: ["AI/ML", "React", "MongoDB"],
     color: "from-blue-500 to-cyan-400",
   },
   {
-    title: "Blockchain KYC System",
-    subtitle: "Secure Verification",
-    description: "Decentralized Aadhaar KYC verification leveraging blockchain technology for enhanced security and privacy in identity verification.",
+    title: "Blockchain KYC",
+    description: "Decentralized identity verification using blockchain technology.",
     icon: Lock,
-    tags: ["Solidity", "Ethereum", "Web3.js", "React"],
+    tags: ["Solidity", "Web3", "React"],
     color: "from-emerald-500 to-green-400",
   },
 ];
 
 const ProjectsSection = () => {
   return (
-    <section id="projects" className="section-padding bg-section-bg">
-      <div className="container mx-auto">
+    <section id="projects" className="section-padding">
+      <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-16">
-          <p className="text-primary font-medium mb-2">PORTFOLIO</p>
+          <p className="text-primary font-medium mb-2 text-sm uppercase tracking-wider">Portfolio</p>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-            Featured <span className="text-gradient">Projects</span>
+            Featured Projects
           </h2>
-          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-            A showcase of my best work in AI/ML, web development, and blockchain technologies
-          </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
+        <div className="grid md:grid-cols-2 gap-6">
+          {projects.map((project) => (
             <div
               key={project.title}
-              className="group bg-card rounded-2xl overflow-hidden shadow-card hover-lift"
+              className="group bg-card rounded-2xl overflow-hidden border border-border hover-lift"
             >
-              {/* Project Header */}
-              <div className={`h-48 bg-gradient-to-br ${project.color} p-6 relative overflow-hidden`}>
-                <div className="absolute inset-0 bg-black/10" />
-                <div className="relative z-10">
-                  <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mb-4">
-                    <project.icon className="w-7 h-7 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white">{project.title}</h3>
-                  <p className="text-white/80 text-sm">{project.subtitle}</p>
+              {/* Header */}
+              <div className={`h-32 bg-gradient-to-br ${project.color} p-6 relative`}>
+                <div className="w-12 h-12 bg-white/20 backdrop-blur rounded-xl flex items-center justify-center">
+                  <project.icon className="w-6 h-6 text-white" />
                 </div>
-                {/* Decorative elements */}
-                <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-white/10 rounded-full" />
-                <div className="absolute top-4 right-4 w-16 h-16 bg-white/10 rounded-full" />
               </div>
 
-              {/* Project Content */}
+              {/* Content */}
               <div className="p-6">
-                <p className="text-muted-foreground mb-4 line-clamp-3">{project.description}</p>
+                <h3 className="text-lg font-semibold text-foreground mb-2">{project.title}</h3>
+                <p className="text-sm text-muted-foreground mb-4">{project.description}</p>
                 
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 bg-muted text-muted-foreground text-xs rounded-full font-medium"
-                    >
+                    <span key={tag} className="px-2 py-1 bg-muted text-xs rounded-md text-muted-foreground">
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                <div className="flex gap-3">
-                  <Button variant="outline" size="sm" className="gap-2 flex-1">
-                    <Github className="w-4 h-4" />
-                    Code
-                  </Button>
-                  <Button size="sm" className="gap-2 flex-1 gradient-primary text-primary-foreground">
-                    <ExternalLink className="w-4 h-4" />
-                    Live Demo
-                  </Button>
-                </div>
+                <Button variant="ghost" size="sm" className="gap-2 text-primary hover:text-primary p-0">
+                  View Project
+                  <ExternalLink className="w-3 h-3" />
+                </Button>
               </div>
             </div>
           ))}

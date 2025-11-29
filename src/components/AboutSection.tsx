@@ -1,95 +1,66 @@
-import { GraduationCap, Award, Code2, Lightbulb } from "lucide-react";
-
 const skills = [
-  { name: "Frontend Development", percentage: 90 },
-  { name: "Backend Development", percentage: 85 },
-  { name: "AI/ML Integration", percentage: 80 },
-  { name: "Blockchain Development", percentage: 75 },
-];
-
-const highlights = [
-  { icon: GraduationCap, title: "REVA University", subtitle: "B.Tech CSE - SGPA 9.87" },
-  { icon: Award, title: "Hackathon Winner", subtitle: "1st Runner-Up Hack Nocturne" },
-  { icon: Code2, title: "Full Stack", subtitle: "AI/ML & Web Development" },
-  { icon: Lightbulb, title: "Innovator", subtitle: "Published Researcher" },
+  { name: "Frontend", percentage: 90 },
+  { name: "Backend", percentage: 85 },
+  { name: "AI/ML", percentage: 80 },
+  { name: "Blockchain", percentage: 75 },
 ];
 
 const techStack = [
-  "Python", "JavaScript", "TypeScript", "React", "Node.js", "Express",
-  "MongoDB", "PostgreSQL", "TensorFlow", "PyTorch", "Solidity", "Git"
+  "React", "Node.js", "Python", "TypeScript", "MongoDB", "TensorFlow"
 ];
 
 const AboutSection = () => {
   return (
-    <section id="about" className="section-padding bg-section-bg">
-      <div className="container mx-auto">
+    <section id="about" className="section-padding">
+      <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-16">
-          <p className="text-primary font-medium mb-2">ABOUT ME</p>
+          <p className="text-primary font-medium mb-2 text-sm uppercase tracking-wider">About</p>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-            I Can Develop Anything
-            <br />
-            <span className="text-gradient">For Your Needs</span>
+            A bit about me
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left - Highlights */}
+        <div className="grid md:grid-cols-2 gap-16">
+          {/* Bio */}
           <div>
-            <div className="grid grid-cols-2 gap-6 mb-8">
-              {highlights.map((item, index) => (
-                <div
-                  key={item.title}
-                  className="bg-card p-6 rounded-xl shadow-card hover-lift"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="w-12 h-12 rounded-lg gradient-primary flex items-center justify-center mb-4">
-                    <item.icon className="w-6 h-6 text-primary-foreground" />
-                  </div>
-                  <h3 className="font-semibold text-foreground">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.subtitle}</p>
-                </div>
-              ))}
-            </div>
-
-            <p className="text-muted-foreground leading-relaxed">
-              I am a dedicated technophile currently pursuing B.Tech in Computer Science and Engineering 
-              at REVA University. My passion lies in creating innovative solutions through programming, 
-              AI/ML integration, and web development. With a strong academic record and hands-on experience 
-              in hackathons, I bring both theoretical knowledge and practical skills to every project.
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              I'm a B.Tech Computer Science student at REVA University with a 9.87 SGPA. 
+              Passionate about building innovative solutions through programming, AI/ML, and web development.
             </p>
-          </div>
-
-          {/* Right - Skills */}
-          <div>
-            <h3 className="text-xl font-semibold text-foreground mb-6">Technical Skills</h3>
-            <div className="space-y-6 mb-8">
-              {skills.map((skill, index) => (
-                <div key={skill.name}>
-                  <div className="flex justify-between mb-2">
-                    <span className="font-medium text-foreground">{skill.name}</span>
-                    <span className="text-primary font-semibold">{skill.percentage}%</span>
-                  </div>
-                  <div className="h-2 bg-muted rounded-full overflow-hidden">
-                    <div
-                      className="h-full gradient-primary rounded-full transition-all duration-1000"
-                      style={{ width: `${skill.percentage}%` }}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <h3 className="text-xl font-semibold text-foreground mb-4">Tech Stack</h3>
+            <p className="text-muted-foreground leading-relaxed mb-8">
+              As a hackathon enthusiast and published researcher, I combine theoretical knowledge 
+              with hands-on experience to create impactful projects.
+            </p>
+            
+            {/* Tech stack */}
             <div className="flex flex-wrap gap-2">
               {techStack.map((tech) => (
                 <span
                   key={tech}
-                  className="px-4 py-2 bg-card border border-border rounded-full text-sm font-medium text-foreground hover:border-primary hover:text-primary transition-colors cursor-default"
+                  className="px-4 py-2 bg-muted rounded-full text-sm font-medium text-foreground"
                 >
                   {tech}
                 </span>
               ))}
             </div>
+          </div>
+
+          {/* Skills */}
+          <div className="space-y-6">
+            {skills.map((skill) => (
+              <div key={skill.name}>
+                <div className="flex justify-between mb-2">
+                  <span className="font-medium text-foreground text-sm">{skill.name}</span>
+                  <span className="text-primary text-sm font-medium">{skill.percentage}%</span>
+                </div>
+                <div className="h-1.5 bg-muted rounded-full overflow-hidden">
+                  <div
+                    className="h-full gradient-primary rounded-full"
+                    style={{ width: `${skill.percentage}%` }}
+                  />
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
