@@ -11,76 +11,66 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 220 20% 15%;
+    --foreground: 220 15% 20%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 20% 15%;
+    --card-foreground: 220 15% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 20% 15%;
+    --popover-foreground: 220 15% 20%;
 
-    --primary: 12 100% 64%;
+    --primary: 12 90% 58%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 270 60% 55%;
+    --secondary: 260 50% 55%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 220 14% 96%;
-    --muted-foreground: 220 10% 45%;
+    --muted-foreground: 220 10% 50%;
 
-    --accent: 45 100% 60%;
-    --accent-foreground: 220 20% 15%;
+    --accent: 45 90% 55%;
+    --accent-foreground: 220 15% 20%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 14% 90%;
-    --input: 220 14% 90%;
-    --ring: 12 100% 64%;
+    --border: 220 14% 92%;
+    --input: 220 14% 92%;
+    --ring: 12 90% 58%;
 
     --radius: 0.75rem;
 
-    /* Custom tokens */
-    --hero-gradient: linear-gradient(135deg, hsl(12 100% 64%) 0%, hsl(25 100% 55%) 100%);
-    --purple-gradient: linear-gradient(135deg, hsl(270 60% 55%) 0%, hsl(280 70% 45%) 100%);
-    --card-shadow: 0 10px 40px -10px hsl(220 20% 15% / 0.1);
-    --card-hover-shadow: 0 20px 60px -15px hsl(220 20% 15% / 0.15);
-    --geometric-orange: hsl(25 100% 55%);
-    --geometric-purple: hsl(270 60% 55%);
-    --geometric-yellow: hsl(45 100% 60%);
-    --section-bg: hsl(220 30% 98%);
+    --hero-gradient: linear-gradient(135deg, hsl(12 90% 58%) 0%, hsl(25 95% 52%) 100%);
+    --purple-gradient: linear-gradient(135deg, hsl(260 50% 55%) 0%, hsl(280 60% 50%) 100%);
+    --card-shadow: 0 4px 20px -4px hsl(220 15% 20% / 0.08);
+    --card-hover-shadow: 0 12px 32px -8px hsl(220 15% 20% / 0.12);
+    --geometric-orange: hsl(25 95% 52%);
+    --geometric-purple: hsl(260 50% 55%);
+    --geometric-yellow: hsl(45 90% 55%);
+    --section-bg: hsl(220 20% 98%);
   }
 
   .dark {
-    --background: 220 20% 10%;
+    --background: 220 20% 8%;
     --foreground: 0 0% 95%;
-
-    --card: 220 20% 13%;
+    --card: 220 20% 11%;
     --card-foreground: 0 0% 95%;
-
-    --popover: 220 20% 13%;
+    --popover: 220 20% 11%;
     --popover-foreground: 0 0% 95%;
-
-    --primary: 12 100% 64%;
+    --primary: 12 90% 58%;
     --primary-foreground: 0 0% 100%;
-
-    --secondary: 270 60% 55%;
+    --secondary: 260 50% 55%;
     --secondary-foreground: 0 0% 100%;
-
-    --muted: 220 20% 18%;
-    --muted-foreground: 220 10% 65%;
-
-    --accent: 45 100% 60%;
-    --accent-foreground: 220 20% 15%;
-
+    --muted: 220 20% 15%;
+    --muted-foreground: 220 10% 60%;
+    --accent: 45 90% 55%;
+    --accent-foreground: 220 15% 20%;
     --destructive: 0 62% 50%;
     --destructive-foreground: 0 0% 100%;
-
-    --border: 220 20% 20%;
-    --input: 220 20% 20%;
-    --ring: 12 100% 64%;
-
-    --section-bg: hsl(220 20% 8%);
+    --border: 220 20% 18%;
+    --input: 220 20% 18%;
+    --ring: 12 90% 58%;
+    --section-bg: hsl(220 20% 6%);
   }
 }
 
@@ -94,8 +84,8 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
-    font-family: "Poppins", sans-serif;
+    @apply bg-background text-foreground antialiased;
+    font-family: "Poppins", system-ui, sans-serif;
   }
 }
 
@@ -115,49 +105,36 @@
     background-clip: text;
   }
 
-  .geometric-shape {
-    position: absolute;
-    border-radius: 0.5rem;
-  }
-
   .animate-float {
-    animation: float 6s ease-in-out infinite;
+    animation: float 8s ease-in-out infinite;
   }
 
   .animate-float-delayed {
-    animation: float 6s ease-in-out infinite 2s;
-  }
-
-  .animate-float-slow {
-    animation: float 8s ease-in-out infinite 1s;
-  }
-
-  .animate-slide-up {
-    animation: slideUp 0.6s ease-out forwards;
-  }
-
-  .animate-fade-in {
-    animation: fadeIn 0.8s ease-out forwards;
+    animation: float 8s ease-in-out infinite 3s;
   }
 
   .section-padding {
-    @apply py-20 md:py-28;
+    @apply py-24 md:py-32;
+  }
+
+  .container-tight {
+    @apply max-w-5xl mx-auto px-6;
   }
 }
 
 @keyframes float {
   0%, 100% {
-    transform: translateY(0px) rotate(0deg);
+    transform: translateY(0px);
   }
   50% {
-    transform: translateY(-20px) rotate(3deg);
+    transform: translateY(-12px);
   }
 }
 
 @keyframes slideUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -166,21 +143,16 @@
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 20px hsl(12 100% 64% / 0.3);
-  }
-  50% {
-    box-shadow: 0 0 40px hsl(12 100% 64% / 0.5);
-  }
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
 }
 
 .hover-lift {
@@ -188,6 +160,6 @@
 }
 
 .hover-lift:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
   box-shadow: var(--card-hover-shadow);
 }
