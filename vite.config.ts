@@ -9,6 +9,7 @@ export default defineConfig(({ mode }) => ({
     port: 8080,
     allowedHosts: [
       "phishield-iwzd-vxpx.onrender.com"
+
     ]
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
