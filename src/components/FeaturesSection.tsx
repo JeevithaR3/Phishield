@@ -1,4 +1,6 @@
+import { motion } from "framer-motion";
 import { Link2, Zap, Shield, Bell, Eye, Lock } from "lucide-react";
+import { staggerContainer, staggerItem } from "./animations/AnimatedSection";
 
 const features = [
   {
@@ -43,7 +45,13 @@ const FeaturesSection = () => {
   return (
     <section id="features" className="section-padding bg-muted/30">
       <div className="container mx-auto px-6">
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-2xl mx-auto mb-16"
+        >
           <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-3">Features</p>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Everything You Need to Stay Safe
@@ -51,25 +59,40 @@ const FeaturesSection = () => {
           <p className="text-muted-foreground">
             Comprehensive protection against phishing attacks, malicious URLs, and online threats.
           </p>
-        </div>
+        </motion.div>
 
         {/* Bento Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div 
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
           {features.map((feature, index) => (
-            <div
+            <motion.div
               key={feature.title}
-              className={`group bg-card rounded-2xl border border-border p-8 hover-lift ${
+              variants={staggerItem}
+              whileHover={{ 
+                y: -8, 
+                transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } 
+              }}
+              className={`group bg-card rounded-2xl border border-border p-8 transition-shadow duration-300 hover:shadow-card-hover cursor-default ${
                 index === 0 ? "md:col-span-2 lg:col-span-1" : ""
               }`}
             >
-              <div className={`w-14 h-14 rounded-2xl ${feature.color} flex items-center justify-center mb-6`}>
+              <motion.div 
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ duration: 0.3 }}
+                className={`w-14 h-14 rounded-2xl ${feature.color} flex items-center justify-center mb-6`}
+              >
                 <feature.icon className="w-7 h-7" />
-              </div>
+              </motion.div>
               <h3 className="text-xl font-semibold text-foreground mb-3">{feature.title}</h3>
               <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

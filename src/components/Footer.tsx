@@ -1,4 +1,6 @@
+import { motion } from "framer-motion";
 import { Shield, Github, Twitter, Mail } from "lucide-react";
+import { staggerContainer, staggerItem } from "./animations/AnimatedSection";
 
 const Footer = () => {
   const links = {
@@ -14,68 +16,100 @@ const Footer = () => {
     ],
   };
 
+  const socialLinks = [
+    { icon: Github, href: "#", label: "GitHub" },
+    { icon: Twitter, href: "#", label: "Twitter" },
+    { icon: Mail, href: "#", label: "Email" },
+  ];
+
   return (
     <footer className="border-t border-border bg-muted/30">
       <div className="container mx-auto px-6 py-12">
-        <div className="grid md:grid-cols-4 gap-8">
+        <motion.div 
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid md:grid-cols-4 gap-8"
+        >
           {/* Brand */}
-          <div className="md:col-span-2">
-            <a href="#" className="flex items-center gap-2 mb-4">
+          <motion.div variants={staggerItem} className="md:col-span-2">
+            <motion.a 
+              href="#" 
+              className="flex items-center gap-2 mb-4"
+              whileHover={{ scale: 1.02 }}
+            >
               <div className="w-10 h-10 rounded-xl gradient-primary flex items-center justify-center">
                 <Shield className="w-5 h-5 text-primary-foreground" />
               </div>
               <span className="text-xl font-bold text-foreground">PhishGuard</span>
-            </a>
+            </motion.a>
             <p className="text-muted-foreground text-sm max-w-md mb-6">
               Protecting users from phishing attacks and malicious URLs with real-time AI-powered detection.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-xl bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-colors">
-                <Github className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-xl bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-colors">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-xl bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-colors">
-                <Mail className="w-5 h-5" />
-              </a>
+              {socialLinks.map((social) => (
+                <motion.a 
+                  key={social.label}
+                  href={social.href} 
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-10 h-10 rounded-xl bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-colors"
+                >
+                  <social.icon className="w-5 h-5" />
+                </motion.a>
+              ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Product Links */}
-          <div>
+          <motion.div variants={staggerItem}>
             <h4 className="font-semibold text-foreground mb-4">Product</h4>
             <ul className="space-y-3">
               {links.product.map((link) => (
                 <li key={link.name}>
-                  <a href={link.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  <motion.a 
+                    href={link.href} 
+                    whileHover={{ x: 4 }}
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors inline-block"
+                  >
                     {link.name}
-                  </a>
+                  </motion.a>
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Legal Links */}
-          <div>
+          <motion.div variants={staggerItem}>
             <h4 className="font-semibold text-foreground mb-4">Legal</h4>
             <ul className="space-y-3">
               {links.legal.map((link) => (
                 <li key={link.name}>
-                  <a href={link.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  <motion.a 
+                    href={link.href} 
+                    whileHover={{ x: 4 }}
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors inline-block"
+                  >
                     {link.name}
-                  </a>
+                  </motion.a>
                 </li>
               ))}
             </ul>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        <div className="border-t border-border mt-12 pt-8 text-center">
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          className="border-t border-border mt-12 pt-8 text-center"
+        >
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} PhishGuard. All rights reserved.
           </p>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );

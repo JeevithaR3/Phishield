@@ -1,9 +1,11 @@
+import { motion } from "framer-motion";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { staggerContainer, staggerItem } from "./animations/AnimatedSection";
 
 const faqs = [
   {
@@ -36,7 +38,13 @@ const FAQSection = () => {
   return (
     <section id="faq" className="section-padding">
       <div className="container mx-auto px-6 max-w-3xl">
-        <div className="text-center mb-12">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
           <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-3">FAQ</p>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Frequently Asked Questions
@@ -44,24 +52,34 @@ const FAQSection = () => {
           <p className="text-muted-foreground">
             Everything you need to know about PhishGuard.
           </p>
-        </div>
+        </motion.div>
 
-        <Accordion type="single" collapsible className="space-y-4">
-          {faqs.map((faq, index) => (
-            <AccordionItem
-              key={index}
-              value={`item-${index}`}
-              className="bg-card border border-border rounded-2xl px-6 data-[state=open]:shadow-card"
-            >
-              <AccordionTrigger className="text-left text-foreground font-medium py-6 hover:no-underline">
-                {faq.question}
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground pb-6">
-                {faq.answer}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+        >
+          <Accordion type="single" collapsible className="space-y-4">
+            {faqs.map((faq, index) => (
+              <motion.div key={index} variants={staggerItem}>
+                <AccordionItem
+                  value={`item-${index}`}
+                  className="bg-card border border-border rounded-2xl px-6 data-[state=open]:shadow-card transition-shadow duration-300"
+                >
+                  <AccordionTrigger className="text-left text-foreground font-medium py-6 hover:no-underline group">
+                    <span className="group-hover:text-primary transition-colors duration-200">
+                      {faq.question}
+                    </span>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground pb-6">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              </motion.div>
+            ))}
+          </Accordion>
+        </motion.div>
       </div>
     </section>
   );
