@@ -9,7 +9,7 @@ export default {
       center: true,
       padding: "1.5rem",
       screens: {
-        "2xl": "1280px",
+        "2xl": "1400px",
       },
     },
     extend: {
@@ -49,14 +49,6 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
-        },
-        geometric: {
-          orange: "var(--geometric-orange)",
-          purple: "var(--geometric-purple)",
-          yellow: "var(--geometric-yellow)",
-        },
-        section: {
-          bg: "var(--section-bg)",
         },
       },
       borderRadius: {
