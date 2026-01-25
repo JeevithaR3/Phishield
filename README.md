@@ -121,7 +121,7 @@ Enable Developer Mode
 Click Load Unpacked
 Select the PhishShield_Extension folder
 
-**# Step 5 – Load the Chrome Extension to detect phishing_emails**
+# Step 4.1 – Load the Chrome Extension to detect phishing_emails
 ```
 Open Chrome
 Go to chrome://extensions
