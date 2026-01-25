@@ -51,10 +51,10 @@ PhishShield is a lightweight AI-powered Chrome extension that detects phishing w
 ## 🏗 System Architecture
 
 User → Chrome Browser → PhishShield Extension → FastAPI Server
-                                   ↓
-                         Google Safe Browsing Verification
-                                   ↓
-                           Result → Warning 
+↓
+Google Safe Browsing Verification
+↓
+Result → Warning 
 
 ---
 
