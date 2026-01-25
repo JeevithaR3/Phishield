@@ -1,33 +1,33 @@
-# 🛡️ PhishShield  
+#  PhishShield  
 ### *AI-Powered Real-Time Phishing Website Detection Chrome Extension*
 
 ---
 
-## 🔍 Problem Statement
+##  Problem Statement
 
 Phishing attacks are rapidly increasing through fake websites and shortened malicious links that look identical to legitimate ones. Users cannot easily identify these phishing pages, and most existing tools rely on blacklists, which fail to detect new and zero-day attacks.
 
 ---
 
-## 💡 Our Solution
+##  Our Solution
 
 PhishShield is a lightweight AI-powered Chrome extension that detects phishing websites in real time. It scans the current webpage, expands shortened URLs, and uses machine learning models to identify phishing patterns within one second — protecting users before they enter sensitive information.
 
 ---
 
-## 🚀 Features
+##  Features
 
-- 🔍 Real-time website phishing detection  
-- 🔗 Shortened URL expansion (bit.ly, tinyurl, etc.)  
-- 🧠 AI-based detection (BERT + XGBoost)  
-- ⚡ Instant warning alerts  
-- 🪶 Lightweight (< 1 MB) Chrome extension  
-- 🔐 Secure login using Firebase Authentication  
-- 📊 Threat history stored in Firebase Firestore
+-  Real-time website phishing detection  
+-  Shortened URL expansion (bit.ly, tinyurl, etc.)  
+-  AI-based detection (BERT + XGBoost)  
+-  Instant warning alerts  
+-  Lightweight (< 1 MB) Chrome extension  
+-  Secure login using Firebase Authentication  
+-  Threat history stored in Firebase Firestore
 
 ---
 
-## 🧰 Technology Stack
+##  Technology Stack
 
 ### Frontend
 - Chrome Extension API  
@@ -48,7 +48,7 @@ PhishShield is a lightweight AI-powered Chrome extension that detects phishing w
 
 ---
 
-## 🏗 System Architecture
+##  System Architecture
 
 ```
 User
@@ -66,7 +66,7 @@ Result → Warning
 
 ---
 
-## 🔄 Project Working Flow
+## Project Working Flow
 
 1. User logs in using Firebase Authentication  
 2. User opens a website  
@@ -81,7 +81,7 @@ Result → Warning
 
 ---
 
-## 🧪 How to Run the Project
+##  How to Run the Project
 
 # Step 1 – Clone the repository
 git clone https://github.com/JeevithaR3/Phishield
@@ -97,12 +97,12 @@ npm run dev
 
 ---
 
-## 🎥 Demo
+##  Demo
 https://drive.google.com/drive/folders/1TS5_8WgvVvPXJ7lYqHT_6LRswJXvu_R5?usp=sharing
 
 ---
 
-## 🌍 Impact
+##  Impact
 
 PhishShield helps protect:
 Online banking users
@@ -113,7 +113,7 @@ From phishing, data theft, and financial fraud.
 
 ---
 
-## 👥 Team
+##  Team
 
 PhishShield – Hackathon Project  
 _Built for AI-powered cyber security_  
