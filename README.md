@@ -119,11 +119,13 @@ After the model is trained, run:
 python run_algorithms.py
 
 # Step 5 – Load the Chrome Extension
+```
 Open Chrome
 Go to chrome://extensions
 Enable Developer Mode
 Click Load Unpacked
 Select the PhishShield_Extension folder
+```
 
 The PhishShield icon will appear in the browser.
 
