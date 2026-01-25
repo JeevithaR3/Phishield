@@ -96,6 +96,42 @@ npm install
 npm run dev
 
 ---
+## Running the AI Phishing Detection Module
+
+PhishShield includes a local engine that powers the real-time phishing detection.
+To run the detection system, follow these steps:
+
+# Step 1 – Navigate to the AI module
+cd PhishShield_Extension
+
+# Step 2 – Install Python dependencies
+pip install pandas numpy scikit-learn joblib flask
+
+# Step 3 – Train the phishing detection model
+python run_algorithms.py
+
+_This trains the Neural Network, Random Forest, and SVM models and saves the trained SVM as:_
+svm_model.pkl
+
+# Step 4 – Start the phishing detection API
+After the model is trained, run:
+
+python run_algorithms.py
+
+# Step 5 – Load the Chrome Extension
+Open Chrome
+Go to chrome://extensions
+Enable Developer Mode
+Click Load Unpacked
+Select the PhishShield_Extension folder
+
+The PhishShield icon will appear in the browser.
+
+# Step 6 – Test phishing detection
+Open any website.
+If a phishing site is detected, PhishShield will show a warning banner.
+
+---
 
 ##  Demo
 https://drive.google.com/drive/folders/1TS5_8WgvVvPXJ7lYqHT_6LRswJXvu_R5?usp=sharing
