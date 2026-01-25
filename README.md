@@ -23,7 +23,9 @@ PhishShield is a lightweight AI-powered Chrome extension that detects phishing w
 - ⚡ Instant warning alerts  
 - 🪶 Lightweight (< 1 MB) Chrome extension  
 - 🔐 Secure login using Firebase Authentication  
-- 📊 Threat history stored in Firebase Firestore  
+- 📊 Threat history stored in Firebase Firestore
+
+---
 
 ## 🧰 Technology Stack
 
@@ -42,7 +44,9 @@ PhishShield is a lightweight AI-powered Chrome extension that detects phishing w
 - Firebase Authentication  
 - Firebase Firestore  
 - Google Safe Browsing API  
-- Google Chrome Extensions Ecosystem  
+- Google Chrome Extensions Ecosystem
+
+---
 
 ## 🏗 System Architecture
 
@@ -51,6 +55,8 @@ User → Chrome Browser → PhishShield Extension → FastAPI Server
                          Google Safe Browsing Verification
                                    ↓
                            Result → Warning 
+
+---
 
 ## 🔄 Project Working Flow
 
@@ -64,6 +70,8 @@ User → Chrome Browser → PhishShield Extension → FastAPI Server
 8. Site is classified as **Safe** or **Phishing**  
 9. Warning is shown if phishing is detected  
 10. Result is stored in Firebase Firestore  
+
+---
 
 ## 🧪 How to Run the Project
 
@@ -79,7 +87,12 @@ npm install
 # Step 4 – Run the frontend
 npm run dev
 
+---
+
+## 🎥 Demo
 https://drive.google.com/drive/folders/1TS5_8WgvVvPXJ7lYqHT_6LRswJXvu_R5?usp=sharing
+
+---
 
 ## 🌍 Impact
 
@@ -89,6 +102,8 @@ E-commerce shoppers
 Students and employees
 Everyday internet users
 From phishing, data theft, and financial fraud.
+
+---
 
 ## 👥 Team
 
