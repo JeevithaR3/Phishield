@@ -62,7 +62,7 @@ FastAPI Server
 Google Safe Browsing Verification
 ↓
 Result → Warning
----
+```
 
 ---
 
