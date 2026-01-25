@@ -1,66 +1,71 @@
-🛡️ PhishShield
-AI-Powered Real-Time Phishing Website Detection Chrome Extension
+# 🛡️ PhishShield  
+### *AI-Powered Real-Time Phishing Website Detection Chrome Extension*
 
-Problem Statement
+---
+
+## 🔍 Problem Statement
 
 Phishing attacks are rapidly increasing through fake websites and shortened malicious links that look identical to legitimate ones. Users cannot easily identify these phishing pages, and most existing tools rely on blacklists, which fail to detect new and zero-day attacks.
 
-Our Solution
+---
+
+## 💡 Our Solution
 
 PhishShield is a lightweight AI-powered Chrome extension that detects phishing websites in real time. It scans the current webpage, expands shortened URLs, and uses machine learning models to identify phishing patterns within one second — protecting users before they enter sensitive information.
 
-Features
+---
 
-Real-time website phishing detection
-Shortened URL expansion (bit.ly, tinyurl, etc.)
-AI-based detection (BERT + XGBoost)
-Instant warning alerts
-Lightweight (<1 MB) Chrome extension
-Secure login using Firebase Authentication
-Threat history stored in Firebase Firestore
+## 🚀 Features
 
-Technology Stack
+- 🔍 Real-time website phishing detection  
+- 🔗 Shortened URL expansion (bit.ly, tinyurl, etc.)  
+- 🧠 AI-based detection (BERT + XGBoost)  
+- ⚡ Instant warning alerts  
+- 🪶 Lightweight (< 1 MB) Chrome extension  
+- 🔐 Secure login using Firebase Authentication  
+- 📊 Threat history stored in Firebase Firestore  
 
-Frontend
-Chrome Extension API
-React.js
-Tailwind CSS
+## 🧰 Technology Stack
 
-Backend & AI
-Python
-FastAPI
-BERT
-XGBoost
+### Frontend
+- Chrome Extension API  
+- React.js  
+- Tailwind CSS  
 
-Google Technologies
-Firebase Authentication
-Firebase Firestore
-Google Safe Browsing API
-Google Chrome Extensions Ecosystem
+### Backend & AI
+- Python  
+- FastAPI  
+- BERT  
+- XGBoost  
 
-System Architecture
+### Google Technologies
+- Firebase Authentication  
+- Firebase Firestore  
+- Google Safe Browsing API  
+- Google Chrome Extensions Ecosystem  
+
+## 🏗 System Architecture
 
 User → Chrome Browser → PhishShield Extension → FastAPI Server
                                    ↓
-                            AI Models (BERT + XGBoost)
-                                   ↓
                          Google Safe Browsing Verification
                                    ↓
-                        Result → Warning → Firebase Storage
+                           Result → Warning 
 
-🔄 Project Working Flow
-User logs in using Firebase Authentication
-User opens a website
-PhishShield captures the URL and page content
-Shortened URLs are expanded
-Data is sent to FastAPI backend
-AI models analyze phishing patterns
-Google Safe Browsing verifies known threats
-Site is classified as Safe or Phishing
-Warning is shown if phishing is detected
-Result is stored in Firebase Firestore
+## 🔄 Project Working Flow
 
-How to Run the Project
+1. User logs in using Firebase Authentication  
+2. User opens a website  
+3. PhishShield captures the URL and page content  
+4. Shortened URLs are expanded  
+5. Data is sent to FastAPI backend  
+6. AI models analyze phishing patterns  
+7. Google Safe Browsing verifies known threats  
+8. Site is classified as **Safe** or **Phishing**  
+9. Warning is shown if phishing is detected  
+10. Result is stored in Firebase Firestore  
+
+## 🧪 How to Run the Project
 
 # Step 1 – Clone the repository
 git clone https://github.com/JeevithaR3/Phishield
@@ -74,11 +79,9 @@ npm install
 # Step 4 – Run the frontend
 npm run dev
 
-📽 Demo
-
 https://drive.google.com/drive/folders/1TS5_8WgvVvPXJ7lYqHT_6LRswJXvu_R5?usp=sharing
 
-🌍 Impact
+## 🌍 Impact
 
 PhishShield helps protect:
 Online banking users
@@ -87,12 +90,12 @@ Students and employees
 Everyday internet users
 From phishing, data theft, and financial fraud.
 
-👥 Team
+## 👥 Team
 
 PhishShield – Hackathon Project  
-Built for AI-powered cyber security  
+_Built for AI-powered cyber security_  
 
-Team Members:  
+_Team Members:_  
 - Jeevitha R  
 - Jeevitha L Shetty  
 - Srividisha MS
