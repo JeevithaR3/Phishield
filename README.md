@@ -113,12 +113,7 @@ python run_algorithms.py
 _This trains the Neural Network, Random Forest, and SVM models and saves the trained SVM as:_
 svm_model.pkl
 
-# Step 4 – Start the phishing detection API
-After the model is trained, run:
-
-python run_algorithms.py
-
-# Step 5 – Load the Chrome Extension
+# Step 4 – Load the Chrome Extension
 ```
 Open Chrome
 Go to chrome://extensions
@@ -129,7 +124,7 @@ Select the PhishShield_Extension folder
 
 The PhishShield icon will appear in the browser.
 
-# Step 6 – Test phishing detection
+# Step 5 – Test phishing detection
 Open any website.
 If a phishing site is detected, PhishShield will show a warning banner.
 
