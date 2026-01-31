@@ -137,6 +137,30 @@ If a phishing site is detected, PhishShield will show a warning banner.
 
 ---
 
+## How to Run the URL Unshortener & Load the Chrome Extension
+# Backend Setup (URL Unshortener Server)
+Open a terminal and navigate to the project directory:
+cd Phishield
+cd backend
+Start the backend server:
+python server.py
+Ensure the server is running successfully before proceeding.
+
+# Load the Chrome Extension (Developer Mode)
+Open Google Chrome
+Navigate to:
+chrome://extensions/
+Enable Developer mode using the toggle in the top-right corner
+Click Load unpacked
+Select the extension folder from the Phishield project directory
+The extension will now be loaded and ready to use
+
+# Requirements
+Python 3.x
+Google Chrome (latest version recommended)
+
+---
+
 ##  Demo
 https://drive.google.com/drive/folders/1TS5_8WgvVvPXJ7lYqHT_6LRswJXvu_R5?usp=sharing
 
