@@ -141,9 +141,12 @@ If a phishing site is detected, PhishShield will show a warning banner.
 # Backend Setup (URL Unshortener Server)
 Open a terminal and navigate to the project directory:
 cd Phishield
+
 cd backend
+
 Start the backend server:
 python server.py
+
 Ensure the server is running successfully before proceeding.
 
 # Load the Chrome Extension (Developer Mode)
