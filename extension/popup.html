@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Unshorten URL</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      padding: 15px;
+      width: 300px;
+      background-color: #f0f8ff; /* light blue background */
+      color: #1a1a1a;
+      overflow: hidden;
+      position: relative;
+    }
+
+    h3 {
+      color: #007bff; /* bright blue heading */
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 600;
+      position: relative;
+      z-index: 1;
+    }
+
+    input {
+      width: 100%;
+      margin-top: 10px;
+      padding: 12px;
+      font-size: 16px;
+      border: 2px solid #007bff;
+      border-radius: 5px;
+      outline: none;
+      position: relative;
+      z-index: 1;
+    }
+
+    input:focus {
+      border-color: #0056b3;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+    button {
+      width: 100%;
+      margin-top: 10px;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #result {
+      margin-top: 15px;
+      font-weight: 600;
+      font-size: 16px;
+      color: #0056b3; /* result text in dark blue */
+      text-align: center;
+      word-wrap: break-word;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Bubble effect */
+    .bubble {
+      position: absolute;
+      background: rgba(0, 123, 255, 0.2);
+      border-radius: 50%;
+      animation: rise 8s infinite;
+      z-index: 0;
+    }
+
+    @keyframes rise {
+      0% {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.3;
+      }
+      50% {
+        opacity: 0.6;
+      }
+      100% {
+        transform: translateY(-150%);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h3>Paste Short URL</h3>
+  <input type="text" id="urlInput" placeholder="e.g. https://tinyurl.com/..." />
+  <button id="checkBtn">Unshorten</button>
+  <div id="result"></div>
+
+  <!-- Bubble elements -->
+  <div class="bubble" style="width: 20px; height: 20px; left: 10%; animation-delay: 0s;"></div>
+  <div class="bubble" style="width: 15px; height: 15px; left: 30%; animation-delay: 2s;"></div>
+  <div class="bubble" style="width: 25px; height: 25px; left: 50%; animation-delay: 4s;"></div>
+  <div class="bubble" style="width: 10px; height: 10px; left: 70%; animation-delay: 1s;"></div>
+  <div class="bubble" style="width: 18px; height: 18px; left: 90%; animation-delay: 3s;"></div>
+
+  <script src="popup.js">
+    
+    // Get references to the input, button, and result div
+const checkBtn = document.getElementById('checkBtn');
+const urlInput = document.getElementById('urlInput');
+const result = document.getElementById('result');
+
+// Add click event listener
+checkBtn.addEventListener('click', () => {
+  const url = urlInput.value.trim().toLowerCase();
+
+  if (!url) {
+    result.textContent = "Please enter a URL!";
+    result.style.color = "#ff0000"; // red
+    return;
+  }
+
+  // Check for common URL shorteners
+  const shorteners = ["tinyurl", "bit.ly", "goo.gl", "t.co", "ow.ly", "is.gd", "buff.ly"];
+  const isShortened = shorteners.some(short => url.includes(short));
+
+  if (isShortened) {
+    result.textContent = "⚠️ This looks like a shortened URL. Don't click until verified!";
+    result.style.color = "#ff4500"; // orange/red
+  } else {
+    result.textContent = "✅ Verified link. You can click safely.";
+    result.style.color = "#28a745"; // green
+  }
+});
+
+  </script>
+  
+</body>
+</html>
