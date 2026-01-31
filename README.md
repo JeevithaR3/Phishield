@@ -192,7 +192,7 @@ PhishShield – Hackathon Project
 _Built for AI-powered cyber security_  
 
 _Team Members:_  
-- Jeevitha R  
+- Jeevitha R  (Team Lead)
 - Jeevitha L Shetty  
 - Srividisha MS
  
