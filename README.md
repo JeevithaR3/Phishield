@@ -151,15 +151,21 @@ Ensure the server is running successfully before proceeding.
 
 # Load the Chrome Extension (Developer Mode)
 Open Google Chrome
+
 Navigate to:
 chrome://extensions/
+
 Enable Developer mode using the toggle in the top-right corner
+
 Click Load unpacked
+
 Select the extension folder from the Phishield project directory
+
 The extension will now be loaded and ready to use
 
 # Requirements
 Python 3.x
+
 Google Chrome (latest version recommended)
 
 ---
