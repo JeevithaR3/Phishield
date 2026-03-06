@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Shield, Chrome } from "lucide-react";
+import { Menu, X, Chrome } from "lucide-react";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
 import { useAuth } from "../context/AuthContext";
@@ -21,7 +21,7 @@ const Navbar = () => {
       return;
     }
 
-    console.log("Add to Chrome clicked"); // analytics hook
+    console.log("Add to Chrome clicked");
     setShowModal(true);
   };
 
@@ -35,12 +35,15 @@ const Navbar = () => {
         className="fixed top-0 left-0 right-0 z-40 bg-background/80 backdrop-blur-xl border-b"
       >
         <div className="container mx-auto px-6 h-16 flex justify-between items-center">
+
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-orange-400 to-orange-600 flex items-center justify-center">
-              <Shield className="text-white" />
-            </div>
-            <span className="font-bold text-xl">PhishGuard</span>
+            <img
+              src="/orange_fish.jpg"
+              alt="PhishShield Logo"
+              className="w-10 h-10 rounded-xl object-cover"
+            />
+            <span className="font-bold text-xl">PhishShield</span>
           </div>
 
           {/* Desktop CTA */}
@@ -79,6 +82,7 @@ const Navbar = () => {
           <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X /> : <Menu />}
           </button>
+
         </div>
       </motion.nav>
     </>

@@ -17,12 +17,12 @@ const steps = [
   {
     icon: Settings,
     title: "3. Pin to Toolbar",
-    description: "Click the puzzle icon in Chrome's toolbar, then click the pin icon next to PhishGuard for easy access.",
+    description: "Click the puzzle icon in Chrome's toolbar, then click the pin icon next to PhishShield for easy access.",
   },
   {
     icon: CheckCircle2,
     title: "4. Start Browsing Safely",
-    description: "That's it! PhishGuard will now automatically protect you from phishing attacks and malicious URLs.",
+    description: "That's it! PhishShield will now automatically protect you from phishing attacks and malicious URLs.",
   },
 ];
 
@@ -43,7 +43,7 @@ const DocumentationSection = () => {
               Get Started in Minutes
             </h2>
             <p className="text-muted-foreground mb-8">
-              Installing PhishGuard takes less than a minute. Follow these simple steps to start protecting yourself from online threats.
+              Installing PhishShield takes less than a minute. Follow these simple steps to start protecting yourself from online threats.
             </p>
 
             <motion.div 
@@ -120,13 +120,15 @@ const DocumentationSection = () => {
                   className="bg-card rounded-xl p-4 border border-border"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="w-16 h-16 rounded-xl gradient-primary flex items-center justify-center flex-shrink-0">
-                      <div className="w-8 h-8 rounded-lg bg-primary-foreground/20 flex items-center justify-center">
-                        <CheckCircle2 className="w-5 h-5 text-primary-foreground" />
-                      </div>
-                    </div>
+                    <div className="w-10 h-10 rounded-xl overflow-hidden">
+  <img
+    src="/orange_fish.jpg"
+    alt="PhishShield Logo"
+    className="w-full h-full object-cover rounded-xl"
+  />
+</div>
                     <div className="flex-1">
-                      <h4 className="font-semibold text-foreground">PhishGuard</h4>
+                      <h4 className="font-semibold text-foreground">PhishShield</h4>
                       <p className="text-sm text-muted-foreground mb-3">Phishing & Malware Protection</p>
                       <div className="flex items-center gap-3">
                         <Button 

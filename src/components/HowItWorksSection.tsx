@@ -13,7 +13,7 @@ const steps = [
     step: "02",
     icon: Search,
     title: "Instant Analysis",
-    description: "PhishGuard unshortens the URL and scans the destination for threats.",
+    description: "PhishShield unshortens the URL and scans the destination for threats.",
   },
   {
     step: "03",
@@ -45,7 +45,7 @@ const HowItWorksSection = () => {
             Protection in 4 Simple Steps
           </h2>
           <p className="text-muted-foreground">
-            PhishGuard works silently in the background, analyzing every link you encounter.
+            PhishShield works silently in the background, analyzing every link you encounter.
           </p>
         </motion.div>
 

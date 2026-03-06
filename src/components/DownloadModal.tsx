@@ -41,7 +41,7 @@ const DownloadModal = ({ open, onClose }: Props) => {
               download
               className="flex items-center justify-between p-3 rounded-lg bg-muted hover:bg-muted/80 transition"
             >
-              <span>PhishGuard Chrome Extension</span>
+              <span>PhishShield Chrome Extension</span>
               <Download />
             </a>
 
@@ -50,7 +50,7 @@ const DownloadModal = ({ open, onClose }: Props) => {
               download
               className="flex items-center justify-between p-3 rounded-lg bg-muted hover:bg-muted/80 transition"
             >
-              <span>PhishGuard Helper Files</span>
+              <span>PhishShield Helper Files</span>
               <Download />
             </a>
           </div>

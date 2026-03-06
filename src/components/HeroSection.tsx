@@ -52,7 +52,7 @@ const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0"
             >
-              PhishGuard unshortens URLs and analyzes web pages in real-time to protect you from 
+              PhishShield unshortens URLs and analyzes web pages in real-time to protect you from 
               malicious content. Get instant alerts before you become a victim.
             </motion.p>
 
@@ -132,21 +132,25 @@ const HeroSection = () => {
               {/* Extension Popup */}
               <div className="bg-muted rounded-2xl p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <motion.div 
-                    animate={{ 
-                      boxShadow: [
-                        "0 0 20px hsl(24 95% 50% / 0.3)",
-                        "0 0 40px hsl(24 95% 50% / 0.5)",
-                        "0 0 20px hsl(24 95% 50% / 0.3)"
-                      ]
-                    }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center"
-                  >
-                    <Shield className="w-6 h-6 text-primary-foreground" />
-                  </motion.div>
+        <motion.div
+  className="w-12 h-12 rounded-xl overflow-hidden border-2 border-white"
+  animate={{ 
+    boxShadow: [
+      "0 0 10px rgba(0,0,0,0.15)",
+      "0 0 20px rgba(0,0,0,0.25)",
+      "0 0 10px rgba(0,0,0,0.15)"
+    ]
+  }}
+  transition={{ duration: 2, repeat: Infinity }}
+>
+  <img
+    src="/orange_fish.jpg"
+    alt="PhishShield Logo"
+    className="w-full h-full object-cover rounded-xl"
+  />
+</motion.div>
                   <div>
-                    <p className="font-semibold text-foreground">PhishGuard Active</p>
+                    <p className="font-semibold text-foreground">PhishShield Active</p>
                     <p className="text-sm text-muted-foreground">Scanning URL...</p>
                   </div>
                 </div>

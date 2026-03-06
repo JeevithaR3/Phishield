@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Shield, Github, Twitter, Mail } from "lucide-react";
+import { Github, Twitter, Mail } from "lucide-react";
 import { staggerContainer, staggerItem } from "./animations/AnimatedSection";
 
 const Footer = () => {
@@ -25,7 +25,7 @@ const Footer = () => {
   return (
     <footer className="border-t border-border bg-muted/30">
       <div className="container mx-auto px-6 py-12">
-        <motion.div 
+        <motion.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
@@ -34,24 +34,31 @@ const Footer = () => {
         >
           {/* Brand */}
           <motion.div variants={staggerItem} className="md:col-span-2">
-            <motion.a 
-              href="#" 
+            <motion.a
+              href="#"
               className="flex items-center gap-2 mb-4"
               whileHover={{ scale: 1.02 }}
             >
-              <div className="w-10 h-10 rounded-xl gradient-primary flex items-center justify-center">
-                <Shield className="w-5 h-5 text-primary-foreground" />
-              </div>
-              <span className="text-xl font-bold text-foreground">PhishGuard</span>
+              <img
+                src="/orange_fish.jpg"
+                alt="PhishShield Logo"
+                className="w-10 h-10 rounded-xl object-cover"
+              />
+              <span className="text-xl font-bold text-foreground">
+                PhishShield
+              </span>
             </motion.a>
+
             <p className="text-muted-foreground text-sm max-w-md mb-6">
-              Protecting users from phishing attacks and malicious URLs with real-time AI-powered detection.
+              Protecting users from phishing attacks and malicious URLs with
+              real-time AI-powered detection.
             </p>
+
             <div className="flex gap-4">
               {socialLinks.map((social) => (
-                <motion.a 
+                <motion.a
                   key={social.label}
-                  href={social.href} 
+                  href={social.href}
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   className="w-10 h-10 rounded-xl bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-colors"
@@ -68,8 +75,8 @@ const Footer = () => {
             <ul className="space-y-3">
               {links.product.map((link) => (
                 <li key={link.name}>
-                  <motion.a 
-                    href={link.href} 
+                  <motion.a
+                    href={link.href}
                     whileHover={{ x: 4 }}
                     className="text-sm text-muted-foreground hover:text-foreground transition-colors inline-block"
                   >
@@ -86,8 +93,8 @@ const Footer = () => {
             <ul className="space-y-3">
               {links.legal.map((link) => (
                 <li key={link.name}>
-                  <motion.a 
-                    href={link.href} 
+                  <motion.a
+                    href={link.href}
                     whileHover={{ x: 4 }}
                     className="text-sm text-muted-foreground hover:text-foreground transition-colors inline-block"
                   >
@@ -99,7 +106,7 @@ const Footer = () => {
           </motion.div>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -107,7 +114,7 @@ const Footer = () => {
           className="border-t border-border mt-12 pt-8 text-center"
         >
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} PhishGuard. All rights reserved.
+            © {new Date().getFullYear()} PhishShield. All rights reserved.
           </p>
         </motion.div>
       </div>

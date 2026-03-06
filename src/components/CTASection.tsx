@@ -30,8 +30,11 @@ const CTASection = () => {
                 transition={{ duration: 0.3 }}
                 className="w-20 h-20 rounded-3xl bg-primary-foreground/20 flex items-center justify-center mx-auto mb-8"
               >
-                <Shield className="w-10 h-10 text-primary-foreground" />
-              </motion.div>
+<img
+  src="/orange_fish.jpg"
+  alt="PhishShield Logo"
+  className="w-full h-full rounded-3xl object-cover"
+/>              </motion.div>
               
               <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
                 Start Protecting Yourself Today
