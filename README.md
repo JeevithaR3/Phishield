@@ -5,13 +5,41 @@
 
 ##  Problem Statement
 
-Phishing attacks are rapidly increasing through fake websites and shortened malicious links that look identical to legitimate ones. Users cannot easily identify these phishing pages, and most existing tools rely on blacklists, which fail to detect new and zero-day attacks.
+Phishing attacks are rapidly increasing through fake websites, malicious emails, and shortened links that appear identical to legitimate services. Attackers often send fraudulent emails containing phishing links that redirect users to fake websites designed to steal sensitive information such as login credentials, banking details, or personal data.
+
+Users cannot easily identify these threats because phishing pages often perfectly mimic legitimate websites, and email messages are crafted to appear trustworthy.
+
+Most existing security tools rely mainly on blacklists or static rules, which fail to detect new and zero-day phishing attacks and sophisticated email-based phishing campaigns.
+
+As a result, users often fall victim to phishing attacks before the threat is detected.
 
 ---
 
 ##  Our Solution
 
-PhishShield is a lightweight AI-powered Chrome extension that detects phishing websites in real time. It scans the current webpage, expands shortened URLs, and uses machine learning models to identify phishing patterns within one second — protecting users before they enter sensitive information.
+PhishShield is a lightweight AI-powered Chrome extension designed to detect both phishing websites and phishing emails in real time.
+
+The extension scans:
+
+#Visited websites
+#Email content and embedded links
+#Shortened URLs
+
+PhishShield expands shortened URLs, analyzes webpage structure and email content, and applies machine learning and NLP models (BERT + XGBoost) to identify phishing patterns within one second.
+
+The system combines:
+- AI-based phishing detection
+- Google Safe Browsing verification
+- URL feature analysis
+- Risk score generation
+
+to warn users before they click malicious links or enter sensitive information.
+
+- This proactive approach helps protect users from:
+- Email phishing campaigns
+- Fake login pages
+- Credential harvesting attacks
+- Financial fraud websites
 
 ---
 
@@ -52,16 +80,22 @@ PhishShield is a lightweight AI-powered Chrome extension that detects phishing w
 
 ```
 User
-↓
+ ↓
 Chrome Browser
-↓
+ ↓
 PhishShield Extension
-↓
-FastAPI Server
-↓
-Google Safe Browsing Verification
-↓
-Result → Warning
+ ↓
+URL / Email Link Extraction
+ ↓
+FastAPI Backend
+ ↓
+Google Safe Browsing Check
+ ↓
+AI Phishing Detection (BERT + XGBoost)
+ ↓
+Risk Score Generation
+ ↓
+Safe / Phishing Warning
 ```
 
 ---
@@ -77,7 +111,92 @@ Result → Warning
 7. Google Safe Browsing verifies known threats  
 8. Site is classified as **Safe** or **Phishing**  
 9. Warning is shown if phishing is detected  
-10. Result is stored in Firebase Firestore  
+10. Result is stored in Firebase Firestore
+
+    
+
+---
+
+## Industry-Style Phishing Detection Pipeline
+**Modern cybersecurity systems use multi-layer detection pipelines to detect phishing.**
+```
+Email / Website
+      ↓
+Extract Links
+      ↓
+1. Google Safe Browsing API
+2. ML Phishing Detection Model
+3. NLP Keyword / AI Analysis
+      ↓
+Risk Score
+      ↓
+Warn User
+```
+
+---
+
+## AI Models Used
+# BERT (Natural Language Processing)
+
+Used to analyze email and webpage text content.
+Detects phishing language patterns such as:
+“Verify your account immediately”
+“Click here to avoid suspension”
+“Your bank account has been locked”
+
+# XGBoost (Machine Learning Model)
+
+Analyzes URL and structural website features, including:
+URL length
+Number of subdomains
+Presence of IP address
+Suspicious characters (@, -, //)
+Domain age
+SSL certificate presence
+These features help detect phishing pages even when they look identical to real websites.
+
+## Ensemble Learning for Phishing Detection
+
+PhishShield experiments with multiple machine learning algorithms:
+Neural Network
+Random Forest
+Support Vector Machine (SVM)
+The best performing model is saved and used for real-time detection.
+
+## Random Forest + Gradient Boosting for Email Phishing
+
+- Random Forest and Gradient Boosting can form a powerful ensemble for phishing detection.
+- Random Forest
+- Strengths:
+- Handles noisy datasets well
+- Reduces overfitting
+- Works well with structural URL features
+
+## Strengths:
+
+- Learns from mistakes of previous models
+- Achieves higher prediction accuracy
+- Captures complex phishing patterns
+- Works well with:
+- Email metadata
+- Text features (TF-IDF)
+- Domain reputation
+
+---
+
+## Project Working Flow
+
+- User logs in using Firebase Authentication
+- User opens a website or email
+- PhishShield captures URL and email links
+- Shortened URLs are expanded
+- Data is sent to the FastAPI backend
+- Google Safe Browsing API checks known threats
+- AI models analyze phishing patterns
+- A risk score is generated
+- Website or email link is classified as Safe or Phishing
+- Warning alert is shown if phishing is detected
+- Detection result is stored in Firebase Firestore
 
 ---
 
@@ -149,6 +268,12 @@ python server.py
 
 Ensure the server is running successfully before proceeding.
 
+---
+## Email Phishing Detection Extension
+
+To enable email phishing detection:
+Load unpacked → phish_emails folder
+
 # Load the Chrome Extension (Developer Mode)
 Open Google Chrome
 
@@ -171,7 +296,7 @@ Google Chrome (latest version recommended)
 ---
 
 ##  Demo
-https://drive.google.com/drive/folders/1TS5_8WgvVvPXJ7lYqHT_6LRswJXvu_R5?usp=sharing
+https://drive.google.com/drive/folders/1TS5_8WgvVvPXJ7lYqHT_6LRswJXvu_R5?usp=sharing](https://drive.google.com/drive/folders/1TS5_8WgvVvPXJ7lYqHT_6LRswJXvu_R5?usp=sharing
 
 ---
 
@@ -195,6 +320,7 @@ _Team Members:_
 - Jeevitha R  (Team Lead)
 - Jeevitha L Shetty  
 - Srividisha MS
+- Morupuri Neha Reddy 
  
 
 
