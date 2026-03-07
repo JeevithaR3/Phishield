@@ -69,13 +69,19 @@ const HeroSection = () => {
                 <Chrome className="w-5 h-5" />
                 Add to Chrome — It's Free
               </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="rounded-full px-8 h-14 text-base transition-all duration-300 hover:bg-muted hover:-translate-y-1"
-              >
-                Watch Demo
-              </Button>
+<a
+  href="https://drive.google.com/embeddedfolderview?id=1TS5_8WgvVvPXJ7lYqHT_6LRswJXvu_R5#grid"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <Button 
+    size="lg" 
+    variant="outline" 
+    className="rounded-full px-8 h-14 text-base transition-all duration-300 hover:bg-muted hover:-translate-y-1"
+  >
+    Watch Demo
+  </Button>
+</a>
             </motion.div>
 
             {/* Stats */}

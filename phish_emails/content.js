@@ -58,33 +58,34 @@ function isSuspiciousURL(url) {
 // EMAIL SCANNING LOGIC
 // ================================
 
-function calculateRiskScore(emailBody) {
-  let score = 0;
+function analyzeEmail(emailBody) {
   const text = emailBody.innerText.toLowerCase();
 
-  // Keyword check
-  PHISHING_KEYWORDS.forEach(keyword => {
-    if (text.includes(keyword)) score++;
-  });
+  let keywordFound = PHISHING_KEYWORDS.some(keyword => text.includes(keyword));
+  let suspiciousLink = false;
+  let dangerousAttachment = false;
 
-  // Link analysis
   emailBody.querySelectorAll("a").forEach(link => {
     const href = link.href;
-    if (isSuspiciousURL(href) && !isTrustedDomain(href)) {
-      score += 2;
-    }
-  });
 
-  // Attachment check (basic)
-  emailBody.querySelectorAll("a").forEach(link => {
+    if (isSuspiciousURL(href) && !isTrustedDomain(href)) {
+      suspiciousLink = true;
+    }
+
     DANGEROUS_EXTENSIONS.forEach(ext => {
-      if (link.href.toLowerCase().endsWith(ext)) {
-        score += 3;
+      if (href.toLowerCase().endsWith(ext)) {
+        dangerousAttachment = true;
       }
     });
   });
 
-  return score;
+  if (dangerousAttachment || suspiciousLink) {
+    return "high";
+  } else if (keywordFound) {
+    return "suspicious";
+  } else {
+    return "safe";
+  }
 }
 
 // ================================
@@ -97,23 +98,26 @@ function scanEmails() {
   emailBodies.forEach(email => {
     if (email.dataset.scanned) return;
 
-    const riskScore = calculateRiskScore(email);
+    const result = analyzeEmail(email);
 
     let banner = "";
     let borderColor = "";
 
-    if (riskScore >= 5) {
+    if (result === "high") {
       borderColor = "red";
-      banner = `🚨 <b>HIGH RISK PHISHING</b> (Score: ${riskScore})`;
-    } else if (riskScore >= 3) {
+      banner = `🚨 <b>HIGH RISK PHISHING</b>`;
+    } 
+    else if (result === "suspicious") {
       borderColor = "orange";
-      banner = `⚠️ <b>Suspicious Email</b> (Score: ${riskScore})`;
-    } else {
+      banner = `⚠️ <b>Suspicious Email</b>`;
+    } 
+    else {
       borderColor = "green";
-      banner = `✅ <b>Likely Safe</b> (Score: ${riskScore})`;
+      banner = `✅ <b>Likely Safe</b>`;
     }
 
     email.style.border = `3px solid ${borderColor}`;
+
     email.insertAdjacentHTML(
       "afterbegin",
       `<div style="
