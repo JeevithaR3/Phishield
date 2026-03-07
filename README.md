@@ -21,9 +21,11 @@ PhishShield is a lightweight AI-powered Chrome extension designed to detect both
 
 The extension scans:
 
-#Visited websites
-#Email content and embedded links
-#Shortened URLs
+```
+# Visited websites
+# Email content and embedded links
+# Shortened URLs
+```
 
 PhishShield expands shortened URLs, analyzes webpage structure and email content, and applies machine learning and NLP models (BERT + XGBoost) to identify phishing patterns within one second.
 
